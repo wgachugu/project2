@@ -16,7 +16,10 @@ CREATE TABLE "museums_location" (
     "Zip_code" int   NULL,
     CONSTRAINT "pk_museums_location" PRIMARY KEY (
         "LocationID"
-     )
+     ),
+    CONSTRAINT "uc_museums_location_Legal_name" UNIQUE (
+        "Legal_name"
+    )
 );
 
 -- Museums Fiscal Year 2015
@@ -26,12 +29,15 @@ CREATE TABLE "museums_fy2015" (
     "Legal_name" varchar   NOT NULL,
     "Phone" int   NULL,
     "Weburl" varchar   NULL,
-    "Revenue" money   NULL,
+    "Revenue_2015" money   NULL,
     "Long" float   NULL,
     "Lat" float   NULL,
     CONSTRAINT "pk_museums_fy2015" PRIMARY KEY (
         "FY2015ID"
-     )
+     ),
+    CONSTRAINT "uc_museums_fy2015_Legal_name" UNIQUE (
+        "Legal_name"
+    )
 );
 
 -- Museums Fiscal Year 2013
@@ -39,11 +45,14 @@ CREATE TABLE "museums_fy2013" (
     "FY2013ID" int   NOT NULL,
     "Museum_name" varchar   NULL,
     "Legal_name" varchar   NOT NULL,
-    "Revenue" money   NULL,
+    "Revenue_2013" money   NULL,
     "Region_code" int   NULL,
     CONSTRAINT "pk_museums_fy2013" PRIMARY KEY (
         "FY2013ID"
-     )
+     ),
+    CONSTRAINT "uc_museums_fy2013_Legal_name" UNIQUE (
+        "Legal_name"
+    )
 );
 
 -- Museums Compiled
@@ -58,7 +67,7 @@ CREATE TABLE "museums_directory" (
     "Lat" float   NULL,
     "Long" float   NULL,
     "Region_code" int   NULL,
-    "Phone" int   NULL,
+    "Phone" bigint   NULL,
     "Weburl" varchar   NULL,
     "Revenue_2013" money   NULL,
     "Revenue_2015" money   NULL,
@@ -70,14 +79,7 @@ CREATE TABLE "museums_directory" (
     )
 );
 
-ALTER TABLE "museums_location" ADD CONSTRAINT "fk_museums_location_Legal_name" FOREIGN KEY("Legal_name")
-REFERENCES "museums_directory" ("Legal_name");
 
-ALTER TABLE "museums_fy2015" ADD CONSTRAINT "fk_museums_fy2015_Legal_name" FOREIGN KEY("Legal_name")
-REFERENCES "museums_directory" ("Legal_name");
-
-ALTER TABLE "museums_fy2013" ADD CONSTRAINT "fk_museums_fy2013_Legal_name" FOREIGN KEY("Legal_name")
-REFERENCES "museums_directory" ("Legal_name");
 
 
 
