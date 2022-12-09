@@ -1,0 +1,36 @@
+# Modify this code to update the DB schema diagram.
+# To reset the sample schema, replace everything with
+# two dots ('..' - without quotes).
+
+museums_location
+-
+index AUTOINCREMENT PK int
+museum_name NULL text
+legal_name NULL text
+museum_type NULL text
+street_address NULL text
+city NULL text
+state NULL text
+zip_code NULL text
+
+# Museums Fiscal Year 2015 
+museums_fy2015
+-
+index AUTOINCREMENT PK int
+common_name NULL text
+legal_name NULL text
+phone NULL text
+weburl NULL text
+revenue_2015 NULL money
+long NULL float
+lat NULL float
+
+# Museums Fiscal Year 2013 
+museums_fy2013
+-
+index AUTOINCREMENT PK int
+museum_name NULL text
+legal_name NULL text 
+revenue_2013 NULL money
+region_code NULL int
+
