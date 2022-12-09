@@ -6,6 +6,16 @@
 -- two dots ('..' - without quotes).
 
 CREATE TABLE "museums_location" (
+<<<<<<< HEAD
+    "index"  SERIAL  NOT NULL,
+    "museum_name" text   NULL,
+    "legal_name" text   NULL,
+    "museum_type" text   NULL,
+    "street_address" text   NULL,
+    "city" text   NULL,
+    "state" text   NULL,
+    "zip_code" text   NULL,
+=======
     "LocationID" int NOT NULL,
     "Museum_name" varchar NULL,
     "Legal_name" varchar NOT NULL,
@@ -14,16 +24,24 @@ CREATE TABLE "museums_location" (
     "City" varchar NULL,
     "State" varchar NULL,
     "Zip_code" int NULL,
+>>>>>>> bd59a4e5080b221212c88cb2ec4f75da6a81b303
     CONSTRAINT "pk_museums_location" PRIMARY KEY (
-        "LocationID"
-     ),
-    CONSTRAINT "uc_museums_location_Legal_name" UNIQUE (
-        "Legal_name"
-    )
+        "index"
+     )
 );
 
 -- Museums Fiscal Year 2015
 CREATE TABLE "museums_fy2015" (
+<<<<<<< HEAD
+    "index"  SERIAL  NOT NULL,
+    "common_name" text   NULL,
+    "legal_name" text   NULL,
+    "phone" text   NULL,
+    "weburl" text   NULL,
+    "revenue_2015" money   NULL,
+    "long" float   NULL,
+    "lat" float   NULL,
+=======
     "FY2015ID" int NOT NULL,
     "Common_name" varchar NULL,
     "Legal_name" varchar NOT NULL,
@@ -32,16 +50,24 @@ CREATE TABLE "museums_fy2015" (
     "Revenue_2015" money NULL,
     "Long" float NULL,
     "Lat" float NULL,
+>>>>>>> bd59a4e5080b221212c88cb2ec4f75da6a81b303
     CONSTRAINT "pk_museums_fy2015" PRIMARY KEY (
-        "FY2015ID"
-     ),
-    CONSTRAINT "uc_museums_fy2015_Legal_name" UNIQUE (
-        "Legal_name"
-    )
+        "index"
+     )
 );
 
 -- Museums Fiscal Year 2013
 CREATE TABLE "museums_fy2013" (
+<<<<<<< HEAD
+    "index"  SERIAL  NOT NULL,
+    "museum_name" text   NULL,
+    "legal_name" text   NULL,
+    "revenue_2013" money   NULL,
+    "region_code" int   NULL,
+    CONSTRAINT "pk_museums_fy2013" PRIMARY KEY (
+        "index"
+     )
+=======
     "FY2013ID" int NOT NULL,
     "Museum_name" varchar NULL,
     "Legal_name" varchar NOT NULL,
@@ -78,6 +104,7 @@ CREATE TABLE "museums_directory" (
     CONSTRAINT "uc_museums_directory_Legal_name" UNIQUE (
         "Legal_name"
     )
+>>>>>>> bd59a4e5080b221212c88cb2ec4f75da6a81b303
 );
 
 SELECT * FROM museums_location;
